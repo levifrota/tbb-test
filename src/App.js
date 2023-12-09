@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./Footer.css";
 import response from "./products.json";
+import Header from "./components/Header";
+import ProductFilter from "./components/ProductFilter";
+import Product from "./components/Product";
+import Footer from "./components/Footer";
 
 const products = response.data.nodes;
 
@@ -20,6 +25,14 @@ function App() {
       setFilteredProducts(products);
     }
   }, [filter]);
+
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search]);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -49,46 +62,18 @@ function App() {
   return (
     <div>
       <div className="App">
-        <h1>Filterable Product List</h1>
-        <div>
-          <label>Filter by category:</label>
-          <select value={filter} onChange={handleFilterChange}>
-            <option value="">All</option>
-            {uniqueCategories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Search by name:</label>
-          <input type="text" value={search} onChange={handleSearchChange} />
-        </div>
-        <div>
-          <label>Show:</label>
-          <select
-            value={productsPerPage}
-            onChange={handleProductsPerPageChange}
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value={filteredProducts.length}>All</option>
-          </select>
-        </div>
-        <div className="products-list">
-          {currentProducts.map((product) => (
-            <div className="product" key={product.id}>
-              <img
-                className="product-img"
-                alt={product.images[0].alt}
-                src={product.images[0].asset.url}
-              />
-              <h3>{product.name}</h3>
-            </div>
-          ))}
-        </div>
+        <Header title="exemplo" image="./public/logo@2x.png" />
+        <h1>O QUE VOCÊ ESTÁ PROCURANDO?</h1>
+        <ProductFilter
+          filter={filter}
+          uniqueCategories={uniqueCategories}
+          handleFilterChange={handleFilterChange}
+          search={search}
+          handleSearchChange={handleSearchChange}
+          productsPerPage={productsPerPage}
+          handleProductsPerPageChange={handleProductsPerPageChange}
+        />
+        <Product currentProducts={currentProducts} />
         <div className="pagination">
           <button
             onClick={() => paginate(currentPage - 1)}
@@ -104,6 +89,7 @@ function App() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

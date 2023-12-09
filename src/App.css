@@ -1,13 +1,13 @@
 .App {
   text-align: center;
   background-color: #f0f0f0;
-  padding: 20px;
 }
 
 .products-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
 .product {
@@ -19,4 +19,42 @@
 
 .product-img {
   width: 7rem;
+}
+
+.header {
+  background-color: #333;
+  padding: 0 20;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 8rem;
+  height: auto;
+  margin-left: 1rem;
+}
+
+.search-container {
+  position: relative;
+  width: 20rem;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+#search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: transparent;
+  border: none;
 }
