@@ -93,7 +93,7 @@ function App() {
           <FontAwesomeIcon id="search-button" icon={faMagnifyingGlass} />
         </div>
         <div className="hamburger" onClick={handleHamburgerClick}>
-          Filtros
+          Filtros &darr;
         </div>
         {isSmallScreen ? (
           showFilter && (
