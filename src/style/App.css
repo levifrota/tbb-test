@@ -1,0 +1,56 @@
+@import "Footer.css";
+@import "Product.css";
+@import "Filter.css";
+@import "Header.css";
+
+.App {
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.btn:active {
+  background-color: #666;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+@media screen and (max-width: 426px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 426px) {
+  .ProductFilter {
+    display: none;
+  }
+}

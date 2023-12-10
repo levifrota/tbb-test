@@ -6,7 +6,10 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-left">
           <div className="footer-contact">
-            <h2>CONTATO</h2>
+            <h2>
+              <span style={{ color: "#19b2c0" }}>/</span>
+              CONTATO
+            </h2>
             <ul>
               <li>
                 909 Third Avenue
@@ -26,24 +29,54 @@ const Footer = () => {
                 <br />
                 +55 (48) 4042 2212
               </li>
+              <li>
+                <a href="https://www.thebrooklynbrothers.com/contact.html">
+                  Email us
+                </a>
+                <br />
+                <a href="https://www.thebrooklynbrothers.com/contact.html">
+                  Google Maps
+                </a>
+              </li>
+              <li>
+                <a href="https://www.thebrooklynbrothers.com/privacy-and-cookies.html">
+                  Privacidade e Termos
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         <div className="footer-center">
           <div className="footer-navigation">
-            <h2>NAVEGAÇÃO</h2>
+            <h2>
+              <span style={{ color: "#d7d923" }}>/</span>
+              NAVEGAÇÃO
+            </h2>
             <ul>
               <li>
-                <a to="/">Home</a>
+                <a href="https://www.thebrooklynbrothers.com/info.html">
+                  Informações
+                </a>
               </li>
               <li>
-                <a to="/about">About</a>
+                <a href="https://www.thebrooklynbrothers.com/news.html">
+                  Notícias
+                </a>
               </li>
               <li>
-                <a to="/services">Services</a>
+                <a href="https://www.thebrooklynbrothers.com/views.html">
+                  Views
+                </a>
               </li>
               <li>
-                <a to="/contact">Contact</a>
+                <a href="https://www.thebrooklynbrothers.com/work.html">
+                  Trabalhe Conosco
+                </a>
+              </li>
+              <li>
+                <a href="https://www.thebrooklynbrothers.com/contact.html">
+                  Contato
+                </a>
               </li>
             </ul>
           </div>
@@ -51,7 +84,10 @@ const Footer = () => {
 
         <div className="footer-right">
           <div className="footer-social">
-            <h2>REDE SOCIAL</h2>
+            <h2>
+              <span style={{ color: "#e53262" }}>/</span>
+              REDE SOCIAL
+            </h2>
             <ul>
               <li>
                 <a
@@ -59,6 +95,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
+                  {/* <FontAwesomeIcon icon="youtube" /> */}
                   Youtube
                 </a>
               </li>
@@ -94,7 +131,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-copyright">
-        <p>Copyright &copy; 2022 The Brooklyn Brothers. All rights reserved.</p>
+        <p>Copyright &copy; 2023 The Brooklyn Brothers. All rights reserved.</p>
       </div>
     </footer>
   );

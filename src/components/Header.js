@@ -5,7 +5,7 @@ const Header = () => {
     <div className="header">
       <img
         src="https://www.thebrooklynbrothers.com/assets/images/logo@2x.png"
-        alt="Logo"
+        alt="The Brooklyn Brothers"
         className="logo"
       />
     </div>

@@ -1,47 +1,23 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const ProductFilter = ({
-  filter,
-  uniqueCategories,
-  handleFilterChange,
-  search,
-  handleSearchChange,
-  productsPerPage,
-  handleProductsPerPageChange,
-}) => {
+const ProductFilter = ({ uniqueCategories, handleFilterChange }) => {
   return (
-    <div>
-      <div>
-        <label>Filtrar por categoria:</label>
-        <select value={filter} onChange={handleFilterChange}>
-          <option value="">Todas</option>
+    <div className="product-filter">
+      <div className="filter-pagination">
+        <div className="filter-categories">
+          <label>Filtrar por categoria: </label>
           {uniqueCategories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
+            <div key={category}>
+              <input
+                type="checkbox"
+                id={category}
+                value={category}
+                onChange={handleFilterChange}
+              />
+              <label htmlFor={category}>{category}</label>
+            </div>
           ))}
-        </select>
-      </div>
-      <div className="search-container">
-        <input
-          type="text"
-          id="search-input"
-          value={search}
-          onChange={handleSearchChange}
-          placeholder="Busque aqui..."
-        />
-        <FontAwesomeIcon id="search-button" icon={faMagnifyingGlass} />
-      </div>
-      <div>
-        <label>Mostrar </label>
-        <select value={productsPerPage} onChange={handleProductsPerPageChange}>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-        </select>
-        <label> itens</label>
+        </div>
       </div>
     </div>
   );

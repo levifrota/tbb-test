@@ -1,0 +1,38 @@
+.product-filter,
+.filter-pagination,
+.category-filter,
+.filter-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search-container {
+  align-self: center;
+  position: relative;
+  width: 20%;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+#search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: 767px) {
+  .search-container {
+    width: 40%;
+  }
+}
