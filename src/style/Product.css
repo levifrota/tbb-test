@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
   padding: 20px;
+  width: 80%;
 }
 
 .product {
@@ -14,4 +15,10 @@
 
 .product-img img {
   width: 7rem;
+}
+
+@media screen and (max-width: 426px) {
+  .products-list {
+    width: auto;
+  }
 }

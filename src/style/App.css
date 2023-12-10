@@ -10,6 +10,11 @@
   flex-direction: column;
 }
 
+.pagination-filter {
+  align-self: flex-start;
+  margin: 1rem 0.75rem;
+}
+
 .btn {
   display: inline-block;
   margin: 10px;
@@ -42,12 +47,19 @@
   margin: 6px 0;
 }
 
+.product-and-filter {
+  display: flex;
+  width: 100vw;
+}
+
 @media screen and (max-width: 426px) {
+  .product-and-filter {
+    display: block;
+  }
   .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 20px;
     cursor: pointer;
   }
 }

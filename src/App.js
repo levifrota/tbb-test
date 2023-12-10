@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./style/App.css";
 import response from "./products.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faChevronUp,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header";
 import ProductFilter from "./components/ProductFilter";
 import Product from "./components/Product";
 import Footer from "./components/Footer";
 import useMatchMedia from "./hooks/useMatchMedia";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const products = response.data.nodes;
 
@@ -92,11 +96,44 @@ function App() {
           />
           <FontAwesomeIcon id="search-button" icon={faMagnifyingGlass} />
         </div>
-        <div className="hamburger" onClick={handleHamburgerClick}>
-          Filtros &darr;
+
+        <div className="pagination-filter">
+          <label>Mostrar </label>
+          <select
+            value={productsPerPage}
+            onChange={handleProductsPerPageChange}
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+          <label> itens</label>
         </div>
-        {isSmallScreen ? (
-          showFilter && (
+
+        <div className="product-and-filter">
+          {showFilter ? (
+            <div className="hamburger" onClick={handleHamburgerClick}>
+              Filtros <FontAwesomeIcon icon={faChevronUp} />
+            </div>
+          ) : (
+            <div className="hamburger" onClick={handleHamburgerClick}>
+              Filtros <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          )}
+          {isSmallScreen ? (
+            showFilter && (
+              <ProductFilter
+                filter={filter}
+                uniqueCategories={uniqueCategories}
+                handleFilterChange={handleFilterChange}
+                search={search}
+                handleSearchChange={handleSearchChange}
+                productsPerPage={productsPerPage}
+                handleProductsPerPageChange={handleProductsPerPageChange}
+              />
+            )
+          ) : (
             <ProductFilter
               filter={filter}
               uniqueCategories={uniqueCategories}
@@ -106,34 +143,10 @@ function App() {
               productsPerPage={productsPerPage}
               handleProductsPerPageChange={handleProductsPerPageChange}
             />
-          )
-        ) : (
-          <ProductFilter
-            filter={filter}
-            uniqueCategories={uniqueCategories}
-            handleFilterChange={handleFilterChange}
-            search={search}
-            handleSearchChange={handleSearchChange}
-            productsPerPage={productsPerPage}
-            handleProductsPerPageChange={handleProductsPerPageChange}
-          />
-        )}
+          )}
 
-        <div>
-          <label>Mostrar </label>
-          <select
-            value={productsPerPage}
-            onChange={handleProductsPerPageChange}
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-          </select>
-          <label> itens</label>
+          <Product currentProducts={currentProducts} />
         </div>
-
-        <Product currentProducts={currentProducts} />
-
         <div className="pagination">
           <button
             onClick={() => paginate(currentPage - 1)}
