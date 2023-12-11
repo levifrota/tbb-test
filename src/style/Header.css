@@ -9,6 +9,10 @@
   z-index: 10;
 }
 
+#dark {
+  background-color: #535353;
+}
+
 .logo {
   width: 8rem;
   height: auto;

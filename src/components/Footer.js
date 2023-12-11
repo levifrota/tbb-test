@@ -1,11 +1,11 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <footer className="footer">
+    <footer className="footer" id={`${theme}`}>
       <div className="footer-container">
         <div className="footer-left">
-          <div className="footer-contact">
+          <div className="footer-contact" id={`${theme}`}>
             <h2>
               <span style={{ color: "#19b2c0" }}>/</span>
               CONTATO
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-center">
-          <div className="footer-navigation">
+          <div className="footer-navigation" id={`${theme}`}>
             <h2>
               <span style={{ color: "#d7d923" }}>/</span>
               NAVEGAÇÃO
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-right">
-          <div className="footer-social">
+          <div className="footer-social" id={`${theme}`}>
             <h2>
               <span style={{ color: "#e53262" }}>/</span>
               REDE SOCIAL

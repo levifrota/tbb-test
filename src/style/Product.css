@@ -12,6 +12,15 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.dark .product {
+  background-color: #535353;
 }
 
 .product-img img {

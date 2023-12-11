@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./style/App.css";
 import response from "./products.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,11 +10,13 @@ import Header from "./components/Header";
 import ProductFilter from "./components/ProductFilter";
 import Product from "./components/Product";
 import Footer from "./components/Footer";
+import ChangeTheme from "./components/ChangeTheme";
 import useMatchMedia from "./hooks/useMatchMedia";
 
 const products = response.data.nodes;
 
 function App() {
+  const [theme, setTheme] = useState("light");
   const [showFilter, setShowFilter] = useState(false);
   const [filter, setFilter] = useState([]);
   const [search, setSearch] = useState("");
@@ -23,7 +25,7 @@ function App() {
   const [productsPerPage, setProductsPerPage] = useState(5);
   const isSmallScreen = useMatchMedia("(max-width: 580px)", true);
 
-  useEffect(() => {
+  const filterProductsByCategory = useCallback(() => {
     if (filter.length > 0) {
       setFilteredProducts(
         products.filter((product) => filter.includes(product.category.name))
@@ -33,13 +35,21 @@ function App() {
     }
   }, [filter]);
 
-  useEffect(() => {
+  const filterProductsByName = useCallback(() => {
     setFilteredProducts(
       products.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search]);
+
+  useEffect(() => {
+    filterProductsByCategory();
+  }, [filterProductsByCategory]);
+
+  useEffect(() => {
+    filterProductsByName();
+  }, [filterProductsByName]);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -68,6 +78,10 @@ function App() {
     setSearch(event.target.value);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   const handleProductsPerPageChange = (event) => {
     setProductsPerPage(parseInt(event.target.value, 10));
   };
@@ -79,19 +93,22 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <Header />
-      <div className="app-body">
-        <h1 className="">O QUE VOCÊ ESTÁ PROCURANDO?</h1>
+    <div className={`App-${theme}`}>
+      <Header theme={theme} />
+
+      <div className={`app-body ${theme}`}>
+        <h1>O QUE VOCÊ ESTÁ PROCURANDO?</h1>
 
         <Search search={search} handleSearchChange={handleSearchChange} />
-
-        <PaginationFilter
-          productsPerPage={productsPerPage}
-          handleProductsPerPageChange={handleProductsPerPageChange}
-          products={products}
-        />
-
+        <div className="pagination-theme">
+          <PaginationFilter
+            productsPerPage={productsPerPage}
+            handleProductsPerPageChange={handleProductsPerPageChange}
+            products={products}
+            setCurrentPage={setCurrentPage}
+          />
+          <ChangeTheme toggleTheme={toggleTheme} />
+        </div>
         <div className="product-and-filter">
           {showFilter ? (
             <div className="hamburger" onClick={handleHamburgerClick}>
@@ -102,6 +119,7 @@ function App() {
               Filtros <FontAwesomeIcon icon={faChevronDown} />
             </div>
           )}
+
           {isSmallScreen ? (
             showFilter && (
               <ProductFilter
@@ -147,7 +165,7 @@ function App() {
           </button>
         </div>
 
-        <Footer />
+        <Footer theme={theme} />
       </div>
     </div>
   );

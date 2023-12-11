@@ -3,23 +3,57 @@
 @import "Filter.css";
 @import "Header.css";
 
-.App {
+.App-light,
+.App-dark {
   text-align: center;
-  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
+}
+
+.App-light {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.theme-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 2rem;
+}
+
+.theme-btn-icon {
+  height: 1.5rem;
+}
+
+.light .theme-btn {
+  color: #333;
+}
+
+.dark .theme-btn {
+  color: #fff;
+}
+
+.App-dark {
+  background-color: #333;
+  color: white;
 }
 
 .app-body {
   position: relative;
-  top: 8rem;
+  top: 6rem;
   display: flex;
   flex-direction: column;
 }
 
+.pagination-theme {
+  margin: 1rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 .pagination-filter {
   align-self: flex-start;
-  margin: 1rem 0.75rem;
   display: flex;
   align-items: center;
 }
@@ -50,8 +84,17 @@
   transition: background-color 0.3s;
 }
 
+.dark .btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
 .btn:hover {
   background-color: #555;
+}
+
+.dark .btn:hover {
+  background-color: #8b8b8b;
 }
 
 .btn:disabled {
