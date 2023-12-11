@@ -7,12 +7,8 @@ const PaginationFilter = ({
   setCurrentPage,
 }) => {
   const handleSelectChange = (event) => {
-    const value = event.target.value;
     handleProductsPerPageChange(event);
-
-    if (value === products.length.toString()) {
-      setCurrentPage(1);
-    }
+    setCurrentPage(1);
   };
 
   const options = [5, 10, 15, products.length];
