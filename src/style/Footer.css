@@ -3,6 +3,8 @@
   padding: 20px 0;
   background-color: #333;
   color: #fff;
+  position: relative;
+  z-index: 20;
 }
 
 #dark {
