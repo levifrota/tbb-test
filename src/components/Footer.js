@@ -95,7 +95,6 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {/* <FontAwesomeIcon icon="youtube" /> */}
                   Youtube
                 </a>
               </li>

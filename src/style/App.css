@@ -10,9 +10,29 @@
   flex-direction: column;
 }
 
+.app-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .pagination-filter {
   align-self: flex-start;
   margin: 1rem 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.select-items {
+  margin: 0 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.select-items:hover {
+  border-color: #666;
 }
 
 .btn {
@@ -34,6 +54,7 @@
 
 .btn:disabled {
   background-color: #666;
+  cursor: auto;
 }
 
 .hamburger {
@@ -48,11 +69,12 @@
 }
 
 .product-and-filter {
-  display: flex;
-  width: 100vw;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 20% 80%;
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 580px) {
   .product-and-filter {
     display: block;
   }
@@ -63,7 +85,7 @@
     cursor: pointer;
   }
 }
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 580px) {
   .ProductFilter {
     display: none;
   }

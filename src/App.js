@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./style/App.css";
 import response from "./products.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faChevronUp,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+import Search from "./components/Search";
+import PaginationFilter from "./components/PaginationFilter";
 import Header from "./components/Header";
 import ProductFilter from "./components/ProductFilter";
 import Product from "./components/Product";
@@ -22,7 +21,7 @@ function App() {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(5);
-  const isSmallScreen = useMatchMedia("(max-width: 426px)", true);
+  const isSmallScreen = useMatchMedia("(max-width: 580px)", true);
 
   useEffect(() => {
     if (filter.length > 0) {
@@ -80,36 +79,18 @@ function App() {
   );
 
   return (
-    <div>
-      <div className="App">
-        <Header />
-
+    <div className="App">
+      <Header />
+      <div className="app-body">
         <h1 className="">O QUE VOCÊ ESTÁ PROCURANDO?</h1>
 
-        <div className="search-container">
-          <input
-            type="text"
-            id="search-input"
-            value={search}
-            onChange={handleSearchChange}
-            placeholder="Busque aqui..."
-          />
-          <FontAwesomeIcon id="search-button" icon={faMagnifyingGlass} />
-        </div>
+        <Search search={search} handleSearchChange={handleSearchChange} />
 
-        <div className="pagination-filter">
-          <label>Mostrar </label>
-          <select
-            value={productsPerPage}
-            onChange={handleProductsPerPageChange}
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-          <label> itens</label>
-        </div>
+        <PaginationFilter
+          productsPerPage={productsPerPage}
+          handleProductsPerPageChange={handleProductsPerPageChange}
+          products={products}
+        />
 
         <div className="product-and-filter">
           {showFilter ? (
@@ -147,6 +128,7 @@ function App() {
 
           <Product currentProducts={currentProducts} />
         </div>
+
         <div className="pagination">
           <button
             onClick={() => paginate(currentPage - 1)}
@@ -164,9 +146,9 @@ function App() {
             Próximo
           </button>
         </div>
-      </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

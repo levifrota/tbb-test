@@ -7,6 +7,10 @@
   align-items: flex-start;
 }
 
+.product-filter {
+  margin: 0 1rem;
+}
+
 .search-container {
   align-self: center;
   position: relative;
@@ -15,7 +19,7 @@
 
 #search-input {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 25px;
   background-color: #f1f1f1;
