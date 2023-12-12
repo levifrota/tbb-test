@@ -10,7 +10,6 @@ import Header from "./components/Header";
 import ProductFilter from "./components/ProductFilter";
 import Product from "./components/Product";
 import Footer from "./components/Footer";
-import ChangeTheme from "./components/ChangeTheme";
 import useMatchMedia from "./hooks/useMatchMedia";
 
 const products = response.data.nodes;
@@ -94,13 +93,16 @@ function App() {
 
   return (
     <div className={`App-${theme}`}>
-      <Header theme={theme} />
+      <Header theme={theme} toggleTheme={toggleTheme} />
 
       <div className={`app-body ${theme}`}>
         <h1>O QUE VOCÊ ESTÁ PROCURANDO?</h1>
 
         <Search search={search} handleSearchChange={handleSearchChange} />
 
+        <div className="total-products">
+          <b>{filteredProducts.length}</b> resultados
+        </div>
         <div className="pagination-theme">
           <PaginationFilter
             productsPerPage={productsPerPage}
@@ -108,12 +110,6 @@ function App() {
             products={products}
             setCurrentPage={setCurrentPage}
           />
-
-          <ChangeTheme theme={theme} toggleTheme={toggleTheme} />
-        </div>
-
-        <div className="total-products">
-          <b>{filteredProducts.length}</b> resultados
         </div>
 
         <div className="product-and-filter">

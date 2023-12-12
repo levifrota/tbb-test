@@ -19,11 +19,16 @@
   margin-left: 1rem;
 }
 
-@media screen and (max-width: 769px) {
-  .header {
-    justify-content: center;
-  }
-  .logo {
-    margin: 0;
-  }
+.theme-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 2rem;
+  color: #fff;
+  position: relative;
+  right: 3rem;
+}
+
+.theme-btn-icon {
+  height: 1.5rem;
 }

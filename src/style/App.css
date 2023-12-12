@@ -15,25 +15,6 @@
   color: #000;
 }
 
-.theme-btn {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  width: 2rem;
-}
-
-.theme-btn-icon {
-  height: 1.5rem;
-}
-
-.light .theme-btn {
-  color: #333;
-}
-
-.dark .theme-btn {
-  color: #fff;
-}
-
 .App-dark {
   background-color: #333;
   color: white;
@@ -117,6 +98,7 @@
 .total-products {
   font-size: 1.2rem;
   margin: 0.75rem 0;
+  align-self: center;
 }
 
 .product-and-filter {
@@ -130,6 +112,9 @@
     width: auto;
     flex-direction: column-reverse;
     align-items: flex-start;
+  }
+  .total-products {
+    margin: 0.75rem 0 0;
   }
   .pagination-filter {
     align-self: center;
