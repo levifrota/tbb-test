@@ -50,6 +50,7 @@
   margin: 1rem 0.75rem;
   display: flex;
   justify-content: space-between;
+  width: 84%;
 }
 
 .pagination-filter {
@@ -94,11 +95,11 @@
 }
 
 .dark .btn:hover {
-  background-color: #8b8b8b;
+  background-color: #afadad;
 }
 
 .btn:disabled {
-  background-color: #666;
+  background-color: #a5a2a2;
   cursor: auto;
 }
 
@@ -120,6 +121,14 @@
 }
 
 @media screen and (max-width: 580px) {
+  .pagination-theme {
+    width: auto;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .pagination-filter {
+    align-self: center;
+  }
   .product-and-filter {
     display: block;
   }
@@ -128,10 +137,5 @@
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
-  }
-}
-@media screen and (max-width: 580px) {
-  .ProductFilter {
-    display: none;
   }
 }

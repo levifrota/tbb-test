@@ -107,18 +107,13 @@ function App() {
             products={products}
             setCurrentPage={setCurrentPage}
           />
-          <ChangeTheme toggleTheme={toggleTheme} />
+          <ChangeTheme theme={theme} toggleTheme={toggleTheme} />
         </div>
         <div className="product-and-filter">
-          {showFilter ? (
-            <div className="hamburger" onClick={handleHamburgerClick}>
-              Filtros <FontAwesomeIcon icon={faChevronUp} />
-            </div>
-          ) : (
-            <div className="hamburger" onClick={handleHamburgerClick}>
-              Filtros <FontAwesomeIcon icon={faChevronDown} />
-            </div>
-          )}
+          <div className="hamburger" onClick={handleHamburgerClick}>
+            Filtros
+            <FontAwesomeIcon icon={showFilter ? faChevronUp : faChevronDown} />
+          </div>
 
           {isSmallScreen ? (
             showFilter && (

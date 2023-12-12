@@ -38,17 +38,6 @@
   margin-bottom: 10px;
 }
 
-.footer-contact ul,
-.footer-social ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-contact li,
-.footer-social li {
-  margin-bottom: 10px;
-}
-
 .footer-copyright {
   text-align: center;
   padding: 20px;
@@ -70,13 +59,14 @@
   margin-bottom: 10px;
 }
 
-.footer-navigation ul {
-  list-style: none;
-  padding: 0;
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.footer-navigation li {
-  margin-bottom: 10px;
+.social-img {
+  height: 1.5rem;
 }
 
 a {

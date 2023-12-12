@@ -1,5 +1,11 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faXTwitter,
+  faYoutube,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 const Footer = ({ theme }) => {
   return (
     <footer className="footer" id={`${theme}`}>
@@ -10,8 +16,9 @@ const Footer = ({ theme }) => {
               <span style={{ color: "#19b2c0" }}>/</span>
               CONTATO
             </h2>
-            <ul>
-              <li>
+            <br />
+            <div>
+              <div>
                 909 Third Avenue
                 <br />
                 9th Floor
@@ -19,8 +26,9 @@ const Footer = ({ theme }) => {
                 New York, NY 10022
                 <br />
                 +1 (212) 242 0200
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 SC 401, 5500
                 <br />
                 Lagoa B 309, 311, 313
@@ -28,8 +36,9 @@ const Footer = ({ theme }) => {
                 Florianópolis, Brazil
                 <br />
                 +55 (48) 4042 2212
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/contact.html">
                   Email us
                 </a>
@@ -37,13 +46,14 @@ const Footer = ({ theme }) => {
                 <a href="https://www.thebrooklynbrothers.com/contact.html">
                   Google Maps
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/privacy-and-cookies.html">
                   Privacidade e Termos
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div className="footer-center">
@@ -52,33 +62,38 @@ const Footer = ({ theme }) => {
               <span style={{ color: "#d7d923" }}>/</span>
               NAVEGAÇÃO
             </h2>
-            <ul>
-              <li>
+            <br />
+            <div>
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/info.html">
                   Informações
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/news.html">
                   Notícias
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/views.html">
                   Views
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/work.html">
                   Trabalhe Conosco
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a href="https://www.thebrooklynbrothers.com/contact.html">
                   Contato
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -86,46 +101,50 @@ const Footer = ({ theme }) => {
           <div className="footer-social" id={`${theme}`}>
             <h2>
               <span style={{ color: "#e53262" }}>/</span>
-              REDE SOCIAL
+              REDES SOCIAIS
             </h2>
-            <ul>
-              <li>
+            <br />
+            <div className="social">
+              <div>
                 <a
                   href="https://www.youtube.com/channel/UCn3kryqtfC35pmNV2KHhvKw"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Youtube
+                  <FontAwesomeIcon icon={faYoutube} className="social-img" />
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a
                   href="https://www.twitter.com/theBKBrothers"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Twitter
+                  <FontAwesomeIcon icon={faXTwitter} className="social-img" />
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a
                   href="https://www.instagram.com/thebrooklynbrothers"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Instagram
+                  <FontAwesomeIcon icon={faInstagram} className="social-img" />
                 </a>
-              </li>
-              <li>
+              </div>
+              <br />
+              <div>
                 <a
                   href="https://www.linkedin.com/company/the-brooklyn-brothers"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn
+                  <FontAwesomeIcon icon={faLinkedin} className="social-img" />
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

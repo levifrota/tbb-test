@@ -1,11 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-const ChangeTheme = ({ toggleTheme }) => {
+const ChangeTheme = ({ theme, toggleTheme }) => {
   return (
     <button onClick={toggleTheme} className="theme-btn">
-      <FontAwesomeIcon icon={faCircleHalfStroke} className="theme-btn-icon" />
+      <FontAwesomeIcon
+        icon={theme === "dark" ? faMoon : faSun}
+        className="theme-btn-icon"
+      />
     </button>
   );
 };
