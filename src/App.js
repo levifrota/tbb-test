@@ -98,7 +98,11 @@ function App() {
       <div className={`app-body ${theme}`}>
         <h1>O QUE VOCÊ ESTÁ PROCURANDO?</h1>
 
-        <Search search={search} handleSearchChange={handleSearchChange} />
+        <Search
+          search={search}
+          handleSearchChange={handleSearchChange}
+          setCurrentPage={setCurrentPage}
+        />
 
         <div className="total-products">
           <b>{filteredProducts.length}</b> resultados

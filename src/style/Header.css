@@ -32,3 +32,16 @@
 .theme-btn-icon {
   height: 1.5rem;
 }
+
+@media screen and (max-width: 580px) {
+  .header {
+    display: grid;
+    grid-template-columns: 90% 10%;
+  }
+  .logo {
+    justify-self: center;
+  }
+  .theme-btn {
+    right: 1rem;
+  }
+}
