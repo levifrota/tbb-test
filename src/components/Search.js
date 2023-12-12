@@ -1,12 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { createHandler } from "../handler/createHandler";
 
 const Search = ({ search, handleSearchChange, setCurrentPage }) => {
-  const handlePageChange = (event) => {
-    handleSearchChange(event);
-    setCurrentPage(1);
-  };
+  const handlePageChange = createHandler(handleSearchChange, setCurrentPage);
 
   return (
     <div className="search-container">

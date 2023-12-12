@@ -131,6 +131,7 @@ function App() {
                 search={search}
                 handleSearchChange={handleSearchChange}
                 productsPerPage={productsPerPage}
+                setCurrentPage={setCurrentPage}
                 handleProductsPerPageChange={handleProductsPerPageChange}
               />
             )
@@ -142,6 +143,7 @@ function App() {
               search={search}
               handleSearchChange={handleSearchChange}
               productsPerPage={productsPerPage}
+              setCurrentPage={setCurrentPage}
               handleProductsPerPageChange={handleProductsPerPageChange}
             />
           )}

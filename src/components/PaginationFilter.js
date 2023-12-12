@@ -1,4 +1,5 @@
 import React from "react";
+import { createHandler } from "../handler/createHandler";
 
 const PaginationFilter = ({
   productsPerPage,
@@ -6,10 +7,10 @@ const PaginationFilter = ({
   products,
   setCurrentPage,
 }) => {
-  const handleSelectChange = (event) => {
-    handleProductsPerPageChange(event);
-    setCurrentPage(1);
-  };
+  const handleSelectChange = createHandler(
+    handleProductsPerPageChange,
+    setCurrentPage
+  );
 
   const options = [5, 10, 15, products.length];
 
