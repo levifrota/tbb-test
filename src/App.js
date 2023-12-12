@@ -100,6 +100,7 @@ function App() {
         <h1>O QUE VOCÊ ESTÁ PROCURANDO?</h1>
 
         <Search search={search} handleSearchChange={handleSearchChange} />
+
         <div className="pagination-theme">
           <PaginationFilter
             productsPerPage={productsPerPage}
@@ -107,8 +108,14 @@ function App() {
             products={products}
             setCurrentPage={setCurrentPage}
           />
+
           <ChangeTheme theme={theme} toggleTheme={toggleTheme} />
         </div>
+
+        <div className="total-products">
+          <b>{filteredProducts.length}</b> resultados
+        </div>
+
         <div className="product-and-filter">
           <div className="hamburger" onClick={handleHamburgerClick}>
             Filtros

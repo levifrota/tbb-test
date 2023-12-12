@@ -114,6 +114,10 @@
   margin: 6px 0;
 }
 
+.total-products {
+  font-size: 1.2rem;
+}
+
 .product-and-filter {
   display: grid;
   width: 100%;
